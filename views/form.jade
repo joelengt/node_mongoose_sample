@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+html(lang="en")
+head
+	meta(charset="UTF-8")
+	title Document
+	script(src="./public/js/handlebars-v4.0.js")
+	script(src="./socket.io/socket.io.js")
+body
+	
+	h1= imagen.title
+	if(typeof imagen.creator != "undefined")
+		form(action="/app/imagenes/#{image._id}?_method=PUT" method="POST", enctype="multipart/form-data")
+			div
+				input(type="submit", value="Guardar", class="btn btn-info")
+			div
+				input(type="file", name="archivo", id="archivo")
+	
+   

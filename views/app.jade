@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+html(lang="en")
+head
+    meta(charset="UTF-8")
+    title Document
+    script(src="./socket.io/socket.io.js")
+    script(src="./public/js/handlebars-v4.0.js")
+body
+    div(id="imagenes")
+        for image in images
+            div(class="img-container")
+                a(href="/app/imagenes/#{imagen._id}")
+                    h2= imagen.title
+                img(src="/public/images/#{imagen._id}.#{imagen.extension}", class="main-img")
+
+                if(typeof imagen.creator != "undefined")
+                    p Por #{imagen.creator.email}
+    
+    script(id="image-template" type="text/x-handlebars-template")
+        div(class="img-container")
+            a(href="/app/images/{{id}}")
+                h2 {{title}}
+            img(src="/public/imagenes/{{id}}/.{{extension}}", class="main-img")
+    
+    script(src="/public/js/client.js")
